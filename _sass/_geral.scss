@@ -1,0 +1,124 @@
+@mixin fonts($size, $color, $weight, $line, $letter, $text, $textShadowns) {
+    font-family: "Nunito", "nunitolight", "nunito-light", "arial";
+    font-weight: #{$weight};
+    line-height: #{$line};
+    font-size: em($size);
+    color: #{$color};
+    letter-spacing: #{$letter};
+    text-align: #{$text};
+    text-shadow: #{$textShadowns};
+}
+
+@mixin colors() {
+    //cores nos módulos
+    $listButtonsName: "roxo-clube", "laranja-smiles", "vinho-transacoes", "magenta", "verde-Localiza", "amarelo-hertz",
+        "amarelo-shopping", "azul-cartoes", "preto-uber", "cinza-medio";
+    $listColors: "#663399", "#FF5A00", "#A11F62", "#EC008C", "#008D2D", "#FFC845", "#FFF200", "#899eae", "#000000",
+        "#7c7c7c";
+
+    $max: length($listButtonsName);
+
+    @for $i from 1 through $max {
+        &.#{nth($listButtonsName, $i)} {
+            $cor: #{nth($listColors, $i)};
+            // &.class {
+
+            // }
+        }
+    }
+}
+
+// @include fonts(30, '#c7c7c7', 900, 1.1, 1, 'center','1px 1px 2px rgba(000,000,000,0.8)');
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////PD
+
+.mod072 {
+    font-family: "Nunito", "nunitolight", "nunito-light", "arial";
+    div {
+        &.container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            div {
+                &.titulo {
+                    display: flex;
+                    flex-direction: row;
+                    color: #fff;
+                    background: #ff5a00;
+                    padding: 10px 20px;
+                    gap: 10px;
+                    div {
+                        &.titulo-esquerda {
+                            flex: 1;
+                            margin: auto;
+                            font-size: 1.2rem;
+                            word-break: break-word;
+                            font-weight: 700;
+                        }
+                        &.titulo-linha {
+                            background: #e6e6e6;
+                            flex: 1;
+                            height: 1px;
+                            width: 100%;
+                            margin: auto;
+                            background-image: linear-gradient(left, #ff5a00, white 98%);
+                            background-image: -o-linear-gradient(left, #ff5a00, white 98%);
+                            background-image: -moz-linear-gradient(left, #ff5a00, white 98%);
+                            background-image: -webkit-linear-gradient(left, #ff5a00, white 98%);
+                            background-image: -ms-linear-gradient(left, #ff5a00, white 98%);
+                        }
+                        &.titulo-img-aviao {
+                            margin-left: 5px;
+                            svg {
+                                width: 35px;
+                                height: 100%;
+                                path {
+                                    fill: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.img {
+                    position: relative;
+                    picture {
+                        
+                        img {
+                            width: 100%;
+                            height: 250px;
+                        }
+                        &:last-child{
+                            position: absolute;
+                            top: 0;
+                            right: 20px;
+                            img{
+                                width: auto;
+                                height: auto;
+                            }
+                        }
+                    }
+                }
+
+                &.menu{
+                    display: flex;
+                    flex-direction: row;
+                    color: #fff;
+                    background: #ff5a00;
+                    padding: 10px 20px;
+                    margin-top: -5px;
+                    font-size: .8rem;
+                    font-weight: 700;
+                    align-items: center;
+                    gap: 10px;
+                    div{
+                        flex: 1;
+                        text-align: left;
+                        word-wrap: break-word;
+                    }
+                }
+            }
+        }
+    }
+}
