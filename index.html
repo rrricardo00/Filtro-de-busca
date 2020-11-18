@@ -48,13 +48,38 @@
                     <div>CLUBE SMILES OU DIAMANTE</div>
                     <div>CLIENTE SMILES</div>
                     <div>COMPANHIA AEREA</div>
+                    <div>BOTÃO</div>
                 </div>
                 <div class="ofertas">
-                    ofertas
+                    <div class="item active">item 1</div>
+                    <div class="item">item 2</div>
+                    <div class="btn-slide">
+                        <a class="voltar" onclick="voltar()"><</a>
+                        <a class="avancar" onclick="avancar()">></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
 
+
+
+    <script>
+        var i = 0;
+
+        function avancar() {
+            document.querySelectorAll('.mod072 .ofertas .item')[i].classList.remove('active');
+            i = (i + 1) %  document.querySelectorAll('.mod072 .ofertas .item').length;
+            document.querySelectorAll('.mod072 .ofertas .item')[i].classList.add('active');
+
+        }
+        function voltar() {
+            document.querySelectorAll('.mod072 .ofertas .item')[i].classList.remove('active');
+            i = (i - 1 + document.querySelectorAll('.mod072 .ofertas .item').length) %  document.querySelectorAll('.mod072 .ofertas .item').length;
+            document.querySelectorAll('.mod072 .ofertas .item')[i].classList.add('active');
+
+        }
+
+    </script>
+</body>
 </html>
