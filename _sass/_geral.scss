@@ -13,7 +13,7 @@
     //cores nos módulos
     $listButtonsName: "roxo-clube", "laranja-smiles", "vinho-transacoes", "magenta", "verde-Localiza", "amarelo-hertz",
         "amarelo-shopping", "azul-cartoes", "preto-uber", "cinza-medio";
-    $listColors: "#663399", "#FF5A00", "#A11F62", "#EC008C", "#008D2D", "#FFC845", "#FFF200", "#899eae", "#000000",
+    $listColors: "#663399", "#ff7020", "#A11F62", "#EC008C", "#008D2D", "#FFC845", "#FFF200", "#899eae", "#000000",
         "#7c7c7c";
 
     $max: length($listButtonsName);
@@ -45,9 +45,9 @@
                     display: flex;
                     flex-direction: row;
                     color: #fff;
-                    background: #ff5a00;
+                    background: #ff7020;
                     padding: 10px 20px;
-                    gap: 10px;
+
                     div {
                         &.titulo-esquerda {
                             flex: 1;
@@ -55,6 +55,7 @@
                             font-size: 1.2rem;
                             word-break: break-word;
                             font-weight: 700;
+                            margin-right: 10px;
                         }
                         &.titulo-linha {
                             background: #e6e6e6;
@@ -62,11 +63,11 @@
                             height: 1px;
                             width: 100%;
                             margin: auto;
-                            background-image: linear-gradient(left, #ff5a00, white 98%);
-                            background-image: -o-linear-gradient(left, #ff5a00, white 98%);
-                            background-image: -moz-linear-gradient(left, #ff5a00, white 98%);
-                            background-image: -webkit-linear-gradient(left, #ff5a00, white 98%);
-                            background-image: -ms-linear-gradient(left, #ff5a00, white 98%);
+                            background-image: linear-gradient(left, #ff7020, white 98%);
+                            background-image: -o-linear-gradient(left, #ff7020, white 98%);
+                            background-image: -moz-linear-gradient(left, #ff7020, white 98%);
+                            background-image: -webkit-linear-gradient(left, #ff7020, white 98%);
+                            background-image: -ms-linear-gradient(left, #ff7020, white 98%);
                         }
                         &.titulo-img-aviao {
                             margin-left: 5px;
@@ -104,23 +105,27 @@
                     display: flex;
                     flex-direction: row;
                     color: #fff;
-                    background: #ff5a00;
+                    background: #ff7020;
                     padding: 10px 20px;
                     margin-top: -5px;
                     font-size: 0.8rem;
                     font-weight: 700;
                     align-items: center;
-                    gap: 10px;
+
                     flex-wrap: wrap;
                     div {
+                        margin-right: 10px;
                         flex: 1;
                         text-align: left;
                         word-wrap: break-word;
+                        &:last-child {
+                            margin-right: 0;
+                        }
                     }
                     @media screen and (max-width: 560px) {
                         div {
                             &:nth-child(5) {
-                                display: none;
+                                margin-right: 0;
                             }
                             &:nth-child(6) {
                                 display: none;
@@ -129,6 +134,9 @@
                                 display: none;
                             }
                             &:nth-child(8) {
+                                display: none;
+                            }
+                            &:nth-child(9) {
                                 display: none;
                             }
                         }
@@ -143,6 +151,104 @@
 
                     div {
                         &.item {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin: 0 20px;
+                            font-size: .9rem;
+                            margin-top: 20px;
+                            align-items: center;
+                            div {
+                                flex: 1;
+                                margin-right: 5px;
+
+                                &.cia{
+                                    picture{
+                                        img{
+                                            width: 100%;
+                                            display: block;
+                                            
+                                        }
+                                    }
+                                }
+
+                                &.botao{
+                                    display: flex;
+                                    justify-content: center;
+                                    margin-right: -5px;
+                                    a{
+                                        &.btn-class{
+                                            background: #ff7020;
+                                            padding: 10px;
+                                            text-decoration: none;
+                                            color: #fff;
+                                            border-radius: 5px;
+                                        }
+                                    }
+                                }
+
+                                &.clube {
+                                    div {
+                                        &.clube-container {
+                                            display: flex;
+                                            flex-wrap: wrap;
+                                            flex-direction: column;
+                                            
+                                            div {
+                                                &.de{
+                                                    font-size: .6rem;
+                                                }
+                                                &.a-partir{
+                                                    font-size: .6rem;
+                                                }
+                                                &.milhas {
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    div{
+                                                        &.valores{
+                                                            font-size: 1.6rem;
+                                                            font-weight: 700;
+                                                        }
+                                                        &.texto-milhas{
+                                                            font-size: .5rem;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                &.cliente {
+                                    div {
+                                        &.cliente-container {
+                                            display: flex;
+                                            flex-wrap: wrap;
+                                            flex-direction: column;
+
+                                            div {
+                                                &.de{
+                                                    font-size: .6rem;
+                                                }
+                                                &.a-partir{
+                                                    font-size: .6rem;
+                                                }
+                                                &.milhas {
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    div{
+                                                        &.valores{
+                                                            font-size: 1.6rem;
+                                                            font-weight: 700;
+                                                        }
+                                                        &.texto-milhas{
+                                                            font-size: .5rem;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                             @media screen and (max-width: 560px) {
                                 display: none;
                             }
@@ -150,6 +256,54 @@
                             &.active {
                                 @media screen and (max-width: 560px) {
                                     display: flex;
+                                    div {
+                                        &:nth-child(6) {
+                                            display: none;
+                                        }
+                                        &:nth-child(7) {
+                                            display: none;
+                                        }
+                                        &:nth-child(8) {
+                                            display: none;
+                                        }
+                                        &:nth-child(9) {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+
+                        &.item-mobile {
+                            display: flex;
+                            flex-direction: column;
+                            margin: 10px 20px;
+                            display: none;
+                            font-size: 0.8rem;
+                            word-break: break-word;
+                            @media screen and (max-width: 560px) {
+                                &.active {
+                                    display: flex;
+                                }
+                            }
+                            div {
+                                &.valor-clube {
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: wrap;
+
+                                    div {
+                                        &.clube1 {
+                                            flex: 1;
+                                        }
+                                        &.clube2 {
+                                            flex: 1;
+                                            display: flex;
+                                            flex-direction: row;
+                                            flex-wrap: wrap;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -161,6 +315,7 @@
                             width: 100%;
                             display: none;
                             user-select: none;
+                            margin-top: 15px;
                             @media screen and (max-width: 560px) {
                                 display: block;
                             }
@@ -169,6 +324,17 @@
                                 &.avancar {
                                     position: absolute;
                                     right: 0;
+                                    background: #ff7020;
+                                    padding: 7px;
+                                    color: #fff;
+                                    font-weight: 700;
+                                }
+
+                                &.voltar {
+                                    background: #ff7020;
+                                    padding: 7px;
+                                    color: #fff;
+                                    font-weight: 700;
                                 }
                             }
                         }
