@@ -40,75 +40,79 @@
                             alt="logo">
                     </picture>
                 </div>
-                <div class="menu">
-                    <div>ORIGEM</div>
-                    <div></div>
-                    <div>DESTINO</div>
-                    <div>IDA</div>
-                    <div>VOLTA</div>
-                    <div>CLUBE SMILES OU DIAMANTE</div>
-                    <div>CLIENTE SMILES</div>
-                    <div>COMPANHIA AEREA</div>
-                    <div></div>
-                </div>
-                <div class="ofertas">
+                <div class="container">
+                    <div class="menu">
+                        <div>ORIGEM</div>
+                        <div class="menu-aviao"></div>
+                        <div>DESTINO</div>
+                        <div>IDA</div>
+                        <div>VOLTA</div>
+                        <div>CLUBE SMILES OU DIAMANTE</div>
+                        <div>CLIENTE SMILES</div>
+                        <div>COMPANHIA AEREA</div>
+                        <div></div>
+                    </div>
+                    <div class="ofertas">
 
-                    <div class="item">
-                        <div class="origem">ORIGEM(ORI)</div>
-                        <div><picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png" alt=""></picture></div>
-                        <div class="destino">DESTINO(DES)</div>
-                        <div class="ida">XX/XX/XX<br />(DOMINGO)</div>
-                        <div class="volta">XX/XX/XX<br />(SEXTA)</div>
-                        <div class="clube">
-                            <div class="clube-container">
-                                <div class="de">De: <s>xxxx</s> milhas</div>
-                                <div class="a-partir">a partir de:</div>
-                                <div class="milhas">
-                                    <div class="valores">XXXX</div>
-                                    <div class="texto-milhas">milhas<br />o trecho<br />+ taxas*</div>
+                        <div class="item">
+                            <div class="origem">FERNANDO DE NORONHA (FER)</div>
+                            <div class="aviao"><picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png" alt="aviao"></picture></div>
+                            <div class="destino">DESTINO(DES)</div>
+                            <div class="ida">XX/XX/XX<br /><span>(DOMINGO)</span></div>
+                            <div class="volta">XX/XX/XX<br /><span>(SÁBADO)</span></div>
+                            <div class="clube">
+                                <div class="clube-container">
+                                    <div class="de">De: <s>xxxx</s> milhas</div>
+                                    <div class="a-partir">a partir de:</div>
+                                    <div class="milhas">
+                                        <div class="valores">XXXX</div>
+                                        <div class="texto-milhas"><span class="milhas-min-clube">milhas</span><br />o trecho<br />+ taxas*</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="cliente">
-                            <div class="cliente-container">
-                                <div class="de">De: <s>xxxx</s> milhas</div>
-                                <div class="a-partir">a partir de:</div>
-                                <div class="milhas">
-                                    <div class="valores">XXXX</div>
-                                    <div class="texto-milhas">milhas<br />o trecho<br />+ taxas*</div>
+                            <div class="cliente">
+                                <div class="cliente-container">
+                                    <div class="de">De: <s>xxxx</s> milhas</div>
+                                    <div class="a-partir">a partir de:</div>
+                                    <div class="milhas">
+                                        <div class="valores">XXXX</div>
+                                        <div class="texto-milhas"><span class="milhas-min-cliente">milhas</span><br />o trecho<br />+ taxas*</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="cia">
-                            <picture>
-                                <img src="https://smiles-mkt.s3.amazonaws.com/ricardo/MOD058/logos/America%20Airlines.png"
-                                    alt="cia aerea">
-                            </picture>
-                        </div>
-                        <div class="botao">
-                            <a class="btn-class" href="#">Resgate já</a>
-                        </div>
-                    </div>
-                    <!--VALORES MOBILE-->
-                    <div class="item-mobile">
-                        <div class="valor-clube">
-                            <div class="clube1">CLUBE SMILES OU DIAMANTE</div>
-                            <div class="clube2">
-                                <div class="de-a-partir">de xxxx milhas<br />a partir de: </div>
-                                <div class="valor">XXXXX</div>
-                                <div class="texto-milhas">MILHAS</div>
+                            <div class="cia">
+                                <picture>
+                                    <img src="https://smiles-mkt.s3.amazonaws.com/ricardo/MOD058/logos/America%20Airlines.png"
+                                        alt="cia aerea">
+                                </picture>
+                            </div>
+                            <div class="botao">
+                                <a class="btn-class" href="#">Resgate já</a>
                             </div>
                         </div>
-                        <div class="valor-geral">cliente</div>
-                        <div class="logo-botao">logo + botao</div>
-                    </div>
-                    <!--FIM VALORES MOBILE-->
-                    <div class="btn-slide">
-                        <a class="voltar" onclick="voltar()"> <span><</span> </a>
-                                <a class="avancar" onclick="avancar()">></a>
-                    </div>
+                        <!--VALORES MOBILE-->
+                        <div class="item-mobile">
+                            <div class="valor-clube">
+                                <div class="clube1">CLUBE SMILES OU DIAMANTE</div>
+                                <div class="clube2">
+                                    <div class="de-a-partir">De: <s>xxxx</s> milhas<br />a partir de: </div>
+                                    <div class="valor">XXXXX</div>
+                                    <div class="texto-milhas"><span class="milhas-min-clube2">milhas</span><br />o trecho<br />+ taxas*</div>
+                                </div>
+                            </div>
+                            <div class="valor-geral">cliente</div>
+                            <div class="logo-botao">logo + botao</div>
+                        </div>
 
+                        <!--FIM VALORES MOBILE-->
+                        <div class="btn-slide">
+                            <a class="voltar" onclick="voltar()"> <span><</span> </a>
+                                    <a class="avancar" onclick="avancar()">></a>
+                        </div>
+    
+                    </div>
                 </div>
+            
             </div>
         </div>
     </div>
@@ -117,7 +121,7 @@
 
     <script>
         var i = 0;
-        document.querySelectorAll('.mod072 .ofertas .item')[i].classList.add('active');
+        document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
         document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
 
         function avancar() {
