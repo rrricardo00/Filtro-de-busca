@@ -127,6 +127,7 @@
                     align-items: center;
                     flex-wrap: wrap;
                     grid-auto-flow: column;
+                    position: relative;
                     @media screen and(max-width: 1200px) {
                         grid-template-columns: 0.5fr 0.1fr 1fr 1fr 1fr;
                     }
@@ -135,7 +136,6 @@
                     }
                     @media screen and(max-width: 375px) {
                         font-size: 0.6rem;
-                        padding: 10px 3px;
                     }
                     div {
                         margin-right: 10px;
@@ -179,10 +179,32 @@
 
                 &.ofertas {
                     position: relative;
+                    height: 450px;
                     display: flex;
-                    flex-wrap: wrap;
+                    // flex-wrap: wrap;
                     flex-direction: column;
-
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    &::-webkit-scrollbar {
+                        width: 5px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        background: #f1f1f1;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: #ff7020;
+                    }
+                    @media screen and(max-width: 1200px) {
+                        overflow-y: unset;
+                        overflow-x: unset;
+                        height: auto;
+                    }
+                    @media screen and(max-width: 450px) {
+                        border: 1px solid #c7c7c7;
+                        border-bottom-left-radius: 10px;
+                        border-bottom-right-radius: 10px;
+                    }
+                    
                     div {
                         &.item {
                             // display: flex;
@@ -193,19 +215,23 @@
                             align-items: center;
                             grid-template-columns: 0.5fr 0.1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                             display: grid;
+                            border-bottom: 1px solid #c7c7c7;
+                            padding-bottom: 20px;
+                            line-height: normal;
                             @media screen and(max-width: 1200px) {
                                 grid-template-columns: 0.5fr 0.1fr 1fr 1fr 1fr;
+                                border-bottom: none;
                             }
                             @media screen and(max-width: 676px) {
                                 font-size: 0.6rem;
-                                margin: 0;
+                                // margin: 0;
                                 margin-top: 20px;
                             }
                             @media screen and(max-width: 350px) {
                                 font-size: 0.4rem;
                             }
                             div {
-                                flex: 1;
+                                // flex: 1;
                                 margin-right: 5px;
 
                                 &.ida,
@@ -218,6 +244,15 @@
                                         @media screen and(max-width: 350px) {
                                             font-size: 0.4rem;
                                         }
+                                    }
+                                }
+
+                                &.volta {
+                                    border-right: 1px solid #c7c7c7;
+                                    margin-right: 45px;
+                                    @media screen and(max-width: 1200px) {
+                                        border: none;
+                                        margin-right: 5px;
                                     }
                                 }
 
@@ -244,6 +279,15 @@
                                     font-weight: 700;
                                 }
 
+                                &.destino {
+                                    border-right: 1px solid #c7c7c7;
+                                    margin-right: 25px;
+                                    @media screen and(max-width: 1200px) {
+                                        border: none;
+                                        margin-right: 5px;
+                                    }
+                                }
+
                                 &.cia {
                                     picture {
                                         img {
@@ -263,6 +307,12 @@
                                             text-decoration: none;
                                             color: #fff;
                                             border-radius: 5px;
+                                            opacity: 1;
+                                            transition: 1s ease-in-out;
+                                            &:hover {
+                                                opacity: 70%;
+                                                transition: 1s ease-in-out;
+                                            }
                                         }
                                     }
                                 }
@@ -276,10 +326,10 @@
 
                                             div {
                                                 &.de {
-                                                    font-size: 0.6rem;
+                                                    font-size: 0.8rem;
                                                 }
                                                 &.a-partir {
-                                                    font-size: 0.6rem;
+                                                    font-size: 0.8rem;
                                                 }
                                                 &.milhas {
                                                     display: flex;
@@ -292,6 +342,7 @@
                                                         }
                                                         &.texto-milhas {
                                                             font-size: 0.5rem;
+                                                            line-height: normal;
                                                             span {
                                                                 &.milhas-min-clube {
                                                                     color: #663399;
@@ -314,10 +365,10 @@
 
                                             div {
                                                 &.de {
-                                                    font-size: 0.6rem;
+                                                    font-size: 0.8rem;
                                                 }
                                                 &.a-partir {
-                                                    font-size: 0.6rem;
+                                                    font-size: 0.8rem;
                                                 }
                                                 &.milhas {
                                                     display: flex;
@@ -330,6 +381,7 @@
                                                         }
                                                         &.texto-milhas {
                                                             font-size: 0.5rem;
+                                                            line-height: normal;
                                                             span {
                                                                 &.milhas-min-cliente {
                                                                     color: #ff7020;
@@ -400,9 +452,13 @@
                                             flex: 1;
                                             font-weight: 700;
                                             color: #639;
-                                            font-size: 0.8rem;
-                                            margin-right: 5px;
+                                            font-size: 1.2rem;
+                                            margin: 0 5px;
                                             min-width: max-content;
+
+                                            @media screen and (max-width: 595px) {
+                                                font-size: 0.8rem !important;
+                                            }
                                             @media screen and (max-width: 409px) {
                                                 font-size: 0.5rem !important;
                                             }
@@ -412,11 +468,9 @@
                                             display: flex;
                                             flex-direction: row;
                                             flex-wrap: wrap;
-                                            font-size: 0.6rem;
-
-                                            @media screen and (max-width: 409px) {
-                                                justify-content: flex-end;
-                                            }
+                                            font-size: 0.8rem;
+                                            line-height: normal;
+                                            
                                             div {
                                                 &.de-a-partir {
                                                     margin-right: 5px;
@@ -428,10 +482,11 @@
                                                 &.valor {
                                                     font-weight: bold;
                                                     color: #639;
-                                                    font-size: 1rem;
+                                                    font-size: 1.5rem;
                                                     margin-right: 5px;
                                                 }
                                                 &.texto-milhas {
+                                                    line-height: normal;
                                                     span {
                                                         &.milhas-min-clube2 {
                                                             font-weight: 700;
@@ -442,7 +497,7 @@
                                                         font-size: 0.4rem;
                                                     }
                                                     @media screen and (max-width: 409px) {
-                                                        font-size: 0.05rem !important;
+                                                        font-size: 0.5rem !important;
                                                     }
                                                 }
                                             }
@@ -456,15 +511,19 @@
                                     flex-direction: row;
                                     flex-wrap: wrap;
                                     font-size: 0.6rem;
-                                    margin-top: 10px;
+                                    margin-top: 20px;
                                     div {
                                         &.geral1 {
                                             flex: 1;
                                             font-weight: 700;
                                             color: #ff7020;
-                                            font-size: 0.8rem;
+                                            font-size: 1.2rem;
                                             margin-right: 5px;
                                             min-width: max-content;
+                                            margin: 0 5px;
+                                            @media screen and (max-width: 595px) {
+                                                font-size: 0.8rem !important;
+                                            }
                                             @media screen and (max-width: 409px) {
                                                 font-size: 0.5rem !important;
                                             }
@@ -474,11 +533,9 @@
                                             display: flex;
                                             flex-direction: row;
                                             flex-wrap: wrap;
-                                            font-size: 0.6rem;
-
-                                            @media screen and (max-width: 409px) {
-                                                justify-content: flex-end;
-                                            }
+                                            font-size: .8rem;
+                                            line-height: normal;
+                                            
                                             div {
                                                 &.de-a-partir {
                                                     margin-right: 5px;
@@ -490,10 +547,11 @@
                                                 &.valor {
                                                     font-weight: bold;
                                                     color: #ff7020;
-                                                    font-size: 1rem;
+                                                    font-size: 1.5rem;
                                                     margin-right: 5px;
                                                 }
                                                 &.texto-milhas {
+                                                    line-height: normal;
                                                     span {
                                                         &.milhas-min-geral2 {
                                                             font-weight: 700;
@@ -504,7 +562,7 @@
                                                         font-size: 0.4rem;
                                                     }
                                                     @media screen and (max-width: 409px) {
-                                                        font-size: 0.05rem !important;
+                                                        font-size: 0.5rem !important;
                                                     }
                                                 }
                                             }
@@ -517,9 +575,9 @@
                                     display: grid;
                                     grid-template-columns: 1fr 1fr;
                                     div {
-                                        &.logo{
-                                            picture{
-                                                img{
+                                        &.logo {
+                                            picture {
+                                                img {
                                                     max-width: 200px;
                                                 }
                                             }
@@ -527,13 +585,13 @@
 
                                         &.botao-mobile {
                                             display: flex;
-                                            
-                                           
+
                                             @media screen and (max-width: 409px) {
-                                                margin-right: 0;
+                                                margin-right: 1px;
                                             }
                                             @media screen and (max-width: 450px) {
-                                               justify-content: flex-end;
+                                                justify-content: flex-end;
+                                                margin-right: 15px;
                                             }
                                             a {
                                                 &.btn-class-mobile {
@@ -545,14 +603,14 @@
                                                     display: flex;
                                                     align-self: center;
                                                     opacity: 1;
-                                                        transition: 1s ease-in-out;
-                                                    &:hover{
+                                                    transition: 1s ease-in-out;
+                                                    &:hover {
                                                         opacity: 70%;
                                                         transition: 1s ease-in-out;
                                                     }
                                                     @media screen and (max-width: 450px) {
                                                         padding: 8px;
-                                                        font-size: .7rem;
+                                                        font-size: 0.7rem;
                                                         border-radius: 3px;
                                                     }
                                                 }
@@ -566,11 +624,11 @@
 
                     div {
                         &.btn-slide {
-                            position: relative;
+                            position: absolute;
                             width: 100%;
                             display: none;
                             user-select: none;
-                            margin-top: 15px;
+                            bottom: -45px;
                             @media screen and (max-width: 1200px) {
                                 display: block;
                             }
@@ -586,6 +644,7 @@
                                 }
 
                                 &.voltar {
+                                    position: absolute;
                                     background: #ff7020;
                                     padding: 7px;
                                     color: #fff;
