@@ -35,6 +35,7 @@
 .mod072 {
     font-family: "Nunito", "nunitolight", "nunito-light", "arial";
     color: #7c7c7c;
+    margin: 20px 0;
     div {
         &.container {
             display: flex;
@@ -98,8 +99,9 @@
                         }
                         &:last-child {
                             position: absolute;
-                            top: 0;
+                            top: 10px;
                             right: 20px;
+                            filter: drop-shadow(1px 0px #000);
                             img {
                                 width: auto;
                                 height: auto;
@@ -119,7 +121,7 @@
                     grid-template-columns: 0.5fr 0.1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
                     flex-direction: row;
                     color: #fff;
-                    background: #ff7020;
+                    background: #d35400;
                     padding: 10px 20px;
                     margin-top: -5px;
                     font-size: 0.8rem;
@@ -150,6 +152,12 @@
                             flex: 0;
                             min-width: 35px;
                             margin-right: 15px;
+                            @media screen and (max-width: 350px) {
+                                margin-right: 0;
+                            }
+                            @media screen and (max-width: 320px) {
+                                margin-right: 15px;
+                            }
                         }
 
                         &:last-child {
@@ -179,7 +187,7 @@
 
                 &.ofertas {
                     position: relative;
-                    height: 450px;
+                    max-height: 450px;
                     display: flex;
                     // flex-wrap: wrap;
                     flex-direction: column;
@@ -195,16 +203,16 @@
                         background: #ff7020;
                     }
                     @media screen and(max-width: 1200px) {
-                        overflow-y: unset;
+                        overflow-y: unset !important;
                         overflow-x: unset;
                         height: auto;
                     }
-                    @media screen and(max-width: 450px) {
+                    @media screen and(max-width: 1200px) {
                         border: 1px solid #c7c7c7;
                         border-bottom-left-radius: 10px;
                         border-bottom-right-radius: 10px;
                     }
-                    
+
                     div {
                         &.item {
                             // display: flex;
@@ -228,7 +236,7 @@
                                 margin-top: 20px;
                             }
                             @media screen and(max-width: 350px) {
-                                font-size: 0.4rem;
+                                font-size: 0.5rem;
                             }
                             div {
                                 // flex: 1;
@@ -262,6 +270,9 @@
                                     margin-right: 15px;
                                     @media screen and (max-width: 1200px) {
                                         margin-right: 20px;
+                                    }
+                                    @media screen and (max-width: 350px) {
+                                        margin-right: 0;
                                     }
                                     @media screen and (max-width: 320px) {
                                         margin-right: 15px;
@@ -300,6 +311,8 @@
                                     display: flex;
                                     justify-content: center;
                                     margin-right: -5px;
+                                    cursor: pointer;
+                                    user-select: none;
                                     a {
                                         &.btn-class {
                                             background: #ff7020;
@@ -470,10 +483,13 @@
                                             flex-wrap: wrap;
                                             font-size: 0.8rem;
                                             line-height: normal;
-                                            
+
                                             div {
                                                 &.de-a-partir {
                                                     margin-right: 5px;
+                                                    @media screen and (max-width: 399px) {
+                                                        font-size: 0.6rem;
+                                                    }
                                                     @media screen and (max-width: 360px) {
                                                         font-size: 0.4rem;
                                                     }
@@ -495,6 +511,7 @@
                                                     }
                                                     @media screen and (max-width: 1200px) {
                                                         font-size: 0.4rem;
+                                                        margin-right: 1px;
                                                     }
                                                     @media screen and (max-width: 409px) {
                                                         font-size: 0.5rem !important;
@@ -533,12 +550,15 @@
                                             display: flex;
                                             flex-direction: row;
                                             flex-wrap: wrap;
-                                            font-size: .8rem;
+                                            font-size: 0.8rem;
                                             line-height: normal;
-                                            
+
                                             div {
                                                 &.de-a-partir {
                                                     margin-right: 5px;
+                                                    @media screen and (max-width: 399px) {
+                                                        font-size: 0.6rem;
+                                                    }
                                                     @media screen and (max-width: 360px) {
                                                         font-size: 0.4rem;
                                                     }
@@ -560,6 +580,7 @@
                                                     }
                                                     @media screen and (max-width: 1200px) {
                                                         font-size: 0.4rem;
+                                                        margin-right: 1px;
                                                     }
                                                     @media screen and (max-width: 409px) {
                                                         font-size: 0.5rem !important;
@@ -576,16 +597,19 @@
                                     grid-template-columns: 1fr 1fr;
                                     div {
                                         &.logo {
+                                            margin-left: 4px;
                                             picture {
                                                 img {
-                                                    max-width: 200px;
+                                                    max-width: 145px;
                                                 }
                                             }
                                         }
 
                                         &.botao-mobile {
                                             display: flex;
-
+                                            margin-left: 5px;
+                                            cursor: pointer;
+                                            user-select: none;
                                             @media screen and (max-width: 409px) {
                                                 margin-right: 1px;
                                             }
@@ -622,37 +646,75 @@
                         }
                     }
 
-                    div {
-                        &.btn-slide {
-                            position: absolute;
-                            width: 100%;
-                            display: none;
-                            user-select: none;
-                            bottom: -45px;
-                            @media screen and (max-width: 1200px) {
-                                display: block;
-                            }
-                            a {
-                                cursor: pointer;
-                                &.avancar {
-                                    position: absolute;
-                                    right: 0;
-                                    background: #ff7020;
-                                    padding: 7px;
-                                    color: #fff;
-                                    font-weight: 700;
-                                }
+                    // div {
+                    //     &.btn-slide {
+                    //         position: absolute;
+                    //         width: 100%;
+                    //         display: none;
+                    //         user-select: none;
+                    //         bottom: -35px;
+                    //         @media screen and (max-width: 1200px) {
+                    //             display: flex;
+                    //             justify-content: center;
+                    //         }
+                    //         a {
+                    //             cursor: pointer;
+                    //             &.avancar {
+                    //                 position: absolute;
+                    //                 background: #ff7020;
+                    //                 padding: 7px;
+                    //                 color: #fff;
+                    //                 font-weight: 700;
+                    //                 left: 60%;
+                    //             }
 
-                                &.voltar {
-                                    position: absolute;
-                                    background: #ff7020;
-                                    padding: 7px;
-                                    color: #fff;
-                                    font-weight: 700;
-                                }
-                            }
-                        }
-                    }
+                    //             &.voltar {
+                    //                 position: absolute;
+                    //                 background: #ff7020;
+                    //                 padding: 7px;
+                    //                 color: #fff;
+                    //                 font-weight: 700;
+                    //                 right: 60%;
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                }
+            }
+        }
+        &.mod072-tj {
+            font-size: 0.6rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        &.btn-slide {
+            margin-top: 10px;
+            width: 100%;
+            display: none;
+            user-select: none;
+            bottom: -35px;
+            @media screen and (max-width: 1200px) {
+                display: flex;
+                justify-content: center;
+            }
+            a {
+                cursor: pointer;
+                &.avancar {
+                    position: absolute;
+                    background: #ff7020;
+                    padding: 7px;
+                    color: #fff;
+                    font-weight: 700;
+                    left: 60%;
+                }
+
+                &.voltar {
+                    position: absolute;
+                    background: #ff7020;
+                    padding: 7px;
+                    color: #fff;
+                    font-weight: 700;
+                    right: 60%;
                 }
             }
         }
