@@ -228,6 +228,7 @@
                             @media screen and(max-width: 1200px) {
                                 grid-template-columns: 0.5fr 0.1fr 1fr 1fr 1fr;
                                 border-bottom: none;
+                                display: none;
                             }
                             @media screen and(max-width: 676px) {
                                 font-size: 0.6rem;
@@ -292,13 +293,24 @@
                                 &.destino {
                                     border-right: 1px solid #c7c7c7;
                                     margin-right: 25px;
+                                    height: 32px;
+                                    place-items: center;
+                                    display: flex;
                                     @media screen and(max-width: 1200px) {
                                         border: none;
                                         margin-right: 5px;
+                                        display: block;
+                                        height: auto;
                                     }
                                 }
 
                                 &.cia {
+                                    padding-left: 25px;
+                                    border-left: 1px solid #c7c7c7;
+                                    @media screen and(max-width: 1200px) {
+                                        padding: 0;
+                                        border: none;
+                                    }
                                     picture {
                                         img {
                                             width: 100%;
