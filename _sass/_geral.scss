@@ -258,9 +258,14 @@
                                 &.volta {
                                     border-right: 1px solid #c7c7c7;
                                     margin-right: 45px;
+                                    height: 32px;
+                                    display: flex;
+                                    align-items: center;
                                     @media screen and(max-width: 1200px) {
                                         border: none;
                                         margin-right: 5px;
+                                        display: block;
+                                        height: auto;
                                     }
                                 }
 
