@@ -95,7 +95,7 @@
                     picture {
                         img {
                             width: 100%;
-                            height: 250px;
+                            height: auto;
                         }
                         &:last-child {
                             position: absolute;
@@ -503,6 +503,7 @@
                                                     }
                                                     @media screen and (max-width: 360px) {
                                                         font-size: 0.4rem;
+                                                        margin-right: 1px;
                                                     }
                                                 }
 
@@ -511,6 +512,9 @@
                                                     color: #639;
                                                     font-size: 1.5rem;
                                                     margin-right: 5px;
+                                                    @media screen and (max-width: 360px) {
+                                                        margin-right: 1px;
+                                                    }
                                                 }
                                                 &.texto-milhas {
                                                     line-height: normal;
@@ -572,6 +576,7 @@
                                                     }
                                                     @media screen and (max-width: 360px) {
                                                         font-size: 0.4rem;
+                                                        margin-right: 1px;
                                                     }
                                                 }
 
@@ -580,6 +585,9 @@
                                                     color: #ff7020;
                                                     font-size: 1.5rem;
                                                     margin-right: 5px;
+                                                    @media screen and (max-width: 360px) {
+                                                        margin-right: 1px;
+                                                    }
                                                 }
                                                 &.texto-milhas {
                                                     line-height: normal;
