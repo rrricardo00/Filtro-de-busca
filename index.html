@@ -43,15 +43,25 @@
                 </div>
                 <div class="container">
                     <div class="menu">
-                        <div>ORIGEM</div>
+                        <div id="origem">ORIGEM <span>></span> </div>
                         <div class="menu-aviao"></div>
-                        <div>DESTINO</div>
+                        <div id="destino">DESTINO</div>
                         <div>IDA</div>
                         <div>VOLTA</div>
                         <div>CLUBE SMILES OU DIAMANTE</div>
                         <div>CLIENTE SMILES</div>
                         <div>COMPANHIA AEREA</div>
                         <div></div>
+                    </div>
+                    <div class="menus-dropdown">
+                        <div class="origem-dropdown no-menu">
+                            <div>origem1</div>
+                            <div>origem2</div>
+                        </div>
+                        <div class="destino-dropdown no-menu">
+                            <div>origem1</div>
+                            <div>origem2</div>
+                        </div>
                     </div>
                     <div class="ofertas">
 
@@ -226,6 +236,7 @@
             document.querySelectorAll('.mod072 .ofertas .item-mobile')[i].classList.add('active');
 
         }
+
         function voltar() {
             document.querySelectorAll('.mod072 .ofertas .item')[i].classList.remove('active');
             document.querySelectorAll('.mod072 .ofertas .item-mobile')[i].classList.remove('active');
@@ -237,6 +248,32 @@
         if (document.querySelectorAll('.mod072 .item').length <= 4) {
             document.querySelector('.mod072 .ofertas').style.overflowY = "hidden"
         }
+
+
+        function mostrarOrigem(e) {
+            e.preventDefault();
+            document.querySelector('.origem-dropdown').classList.toggle('no-menu');
+        }
+
+        function mostrarDestino(e) {
+            e.preventDefault();
+            document.querySelector('.destino-dropdown').classList.toggle('no-menu');
+        }
+
+        function tirarMenu() {
+            document.querySelector('.destino-dropdown').classList.add('no-menu')
+        }
+        function tirarMenu2() {
+            document.querySelector('.origem-dropdown').classList.add('no-menu')
+        }
+
+        document.querySelector('#destino').addEventListener('click', mostrarDestino);
+        document.querySelector('#origem').addEventListener('click', mostrarOrigem);
+        document.querySelector('.destino-dropdown').addEventListener('mouseleave', tirarMenu)
+        document.querySelector('.origem-dropdown').addEventListener('mouseleave', tirarMenu2)
+
+
+
 
     </script>
 </body>

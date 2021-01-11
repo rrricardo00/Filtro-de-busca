@@ -122,6 +122,50 @@
                     flex-direction: column;
                 }
 
+                &.menus-dropdown{
+                    display: flex;
+                    position: relative;
+                    div{
+                        z-index: 999;
+                        background: #fff;
+                        margin: 5px;
+                        
+                        &.no-menu{
+                            display: none;
+                        }
+
+                        &.origem-dropdown{
+                            top: -15px;
+                            position: absolute;
+                            left: 15px;
+                            color: red;
+                            filter: drop-shadow(0 0 2px #000);
+                            
+                            div{
+                                padding: 3px;
+                                &:hover{
+                                    background: rgba(0,0,0, .1);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        &.destino-dropdown{
+                            top: -15px;
+                            position: absolute;
+                            color: blue;
+                            left: 150px;
+                            filter: drop-shadow(0 0 2px #000);
+                            div{
+                                padding: 3px;
+                                &:hover{
+                                    background: rgba(0,0,0, .1);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 &.menu {
                     // display: flex;
                     display: grid;
@@ -147,6 +191,17 @@
                         font-size: 0.6rem;
                     }
                     div {
+
+                        &#origem{
+                            cursor: pointer;
+                            user-select: none;
+                        }
+                        &#destino{
+                            cursor: pointer;
+                            user-select: none;
+                        }
+
+
                         margin-right: 10px;
                         // flex: 1;
 
@@ -155,6 +210,8 @@
                         @media screen and (max-width: 1200px) {
                             margin-right: 5px;
                         }
+                        
+
                         &.menu-aviao {
                             flex: 0;
                             min-width: 35px;
