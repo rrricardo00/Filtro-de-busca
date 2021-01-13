@@ -45,7 +45,7 @@
                     <div class="menu">
                         <div id="origem">ORIGEM <span>></span> </div>
                         <div class="menu-aviao"></div>
-                        <div id="destino">DESTINO</div>
+                        <div id="destino">DESTINO <span>></span></div>
                         <div>IDA</div>
                         <div>VOLTA</div>
                         <div>CLUBE SMILES OU DIAMANTE</div>
@@ -55,23 +55,24 @@
                     </div>
                     <div class="menus-dropdown">
                         <div class="origem-dropdown no-menu">
-                            <div>origem1</div>
-                            <div>origem2</div>
+                            <div>FERNANDO DE NORONHA (FNR)</div>
+                            <div>GUARULHOS (GRU)</div>
+                            <div>MEXICO (MEX)</div>
                         </div>
                         <div class="destino-dropdown no-menu">
-                            <div>origem1</div>
-                            <div>origem2</div>
+                            <div>SÃO PAULO (SSP)</div>
+                            <div>MEXICO (MEX)</div>
                         </div>
                     </div>
                     <div class="ofertas">
 
                         <div class="item">
-                            <div class="origem">FERNANDO DE NORONHA (FER)</div>
+                            <div class="origem">FERNANDO DE NORONHA (FNR)</div>
                             <div class="aviao">
                                 <picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png"
                                         alt="aviao"></picture>
                             </div>
-                            <div class="destino">FERNANDO DE NORONHA (FER) 1</div>
+                            <div class="destino">SÃO PAULO (SSP)</div>
                             <div class="ida">XX/XX/XXXX<br /><span>(DOMINGO)</span></div>
                             <div class="volta">XX/XX/XXXX<br /><span>(SÁBADO)</span></div>
                             <div class="clube">
@@ -138,12 +139,12 @@
                         </div>
 
                         <div class="item">
-                            <div class="origem">FERNANDO DE NORONHA (FER)</div>
+                            <div class="origem">GUARULHOS (GRU)</div>
                             <div class="aviao">
                                 <picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png"
                                         alt="aviao"></picture>
                             </div>
-                            <div class="destino">FERNANDO DE NORONHA (FER) 1</div>
+                            <div class="destino">FERNANDO DE NORONHA (FER) 2</div>
                             <div class="ida">XX/XX/XXXX<br /><span>(DOMINGO)</span></div>
                             <div class="volta">XX/XX/XXXX<br /><span>(SÁBADO)</span></div>
                             <div class="clube">
@@ -271,9 +272,32 @@
         document.querySelector('#origem').addEventListener('click', mostrarOrigem);
         document.querySelector('.destino-dropdown').addEventListener('mouseleave', tirarMenu)
         document.querySelector('.origem-dropdown').addEventListener('mouseleave', tirarMenu2)
+        document.querySelector('.destino-dropdown').addEventListener('click', tirarMenu)
+        document.querySelector('.origem-dropdown').addEventListener('click', tirarMenu2)
 
 
+        //filtro
 
+        const origemDrop = document.querySelector('.origem-dropdown');
+        const destinoDrop = document.querySelector('.destino-dropdown');
+        let ar = [].slice.call(document.querySelector('.ofertas').children);
+
+        function pesquisarOrigem(e) {
+            let filtro =  ar.filter(item => item.querySelector('.origem'));
+            let filtro2 = filtro.filter(item => item.querySelector('.origem').innerText.includes(e.target.innerText));
+            document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            
+        }
+
+        function pesquisarDestino(e) {
+            let filtro =  ar.filter(item => item.querySelector('.destino'));
+            let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
+            document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            
+        }
+       
+        origemDrop.addEventListener('click', pesquisarOrigem);
+        destinoDrop.addEventListener('click', pesquisarDestino);
 
     </script>
 </body>

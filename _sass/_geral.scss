@@ -122,43 +122,43 @@
                     flex-direction: column;
                 }
 
-                &.menus-dropdown{
+                &.menus-dropdown {
                     display: flex;
                     position: relative;
-                    div{
+                    div {
                         z-index: 999;
                         background: #fff;
                         margin: 5px;
-                        
-                        &.no-menu{
+
+                        &.no-menu {
                             display: none;
                         }
 
-                        &.origem-dropdown{
+                        &.origem-dropdown {
                             top: -15px;
                             position: absolute;
                             left: 15px;
                             color: red;
                             filter: drop-shadow(0 0 2px #000);
-                            
-                            div{
+
+                            div {
                                 padding: 3px;
-                                &:hover{
-                                    background: rgba(0,0,0, .1);
+                                &:hover {
+                                    background: rgba(0, 0, 0, 0.1);
                                     cursor: pointer;
                                 }
                             }
                         }
-                        &.destino-dropdown{
+                        &.destino-dropdown {
                             top: -15px;
                             position: absolute;
                             color: blue;
                             left: 150px;
                             filter: drop-shadow(0 0 2px #000);
-                            div{
+                            div {
                                 padding: 3px;
-                                &:hover{
-                                    background: rgba(0,0,0, .1);
+                                &:hover {
+                                    background: rgba(0, 0, 0, 0.1);
                                     cursor: pointer;
                                 }
                             }
@@ -191,16 +191,24 @@
                         font-size: 0.6rem;
                     }
                     div {
-
-                        &#origem{
+                        &#origem {
                             cursor: pointer;
                             user-select: none;
+                            span {
+                                position: absolute;
+                                transform: rotate(90deg);
+                                margin-left: 2px;
+                            }
                         }
-                        &#destino{
+                        &#destino {
                             cursor: pointer;
                             user-select: none;
+                            span {
+                                position: absolute;
+                                transform: rotate(90deg);
+                                margin-left: 2px;
+                            }
                         }
-
 
                         margin-right: 10px;
                         // flex: 1;
@@ -210,7 +218,6 @@
                         @media screen and (max-width: 1200px) {
                             margin-right: 5px;
                         }
-                        
 
                         &.menu-aviao {
                             flex: 0;
