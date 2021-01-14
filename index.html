@@ -61,6 +61,7 @@
                         </div>
                         <div class="destino-dropdown no-menu">
                             <div>SÃO PAULO (SSP)</div>
+                            <div>GUARULHOS (GRU)</div>
                             <div>MEXICO (MEX)</div>
                         </div>
                     </div>
@@ -145,7 +146,7 @@
                                 <picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png"
                                         alt="aviao"></picture>
                             </div>
-                            <div class="destino">SÃO PAULO (SSP)</div>
+                            <div class="destino">GUARULHOS (GRU)</div>
                             <div class="ida">XX/XX/XXXX<br /><span>(DOMINGO)</span></div>
                             <div class="volta">XX/XX/XXXX<br /><span>(SÁBADO)</span></div>
                             <div class="clube">
@@ -183,7 +184,7 @@
                         <!--VALORES MOBILE-->
                         <div class="item-mobile">
                             <div class="origem">FERNANDO DE NORONHA (FNR)</div>
-                            <div class="destino">SÃO PAULO (SSP)</div>
+                            <div class="destino">GUARULHOS (GRU)</div>
                             <div class="valor-clube">
                                 <div class="clube1">CLUBE SMILES OU DIAMANTE</div>
                                 <div class="clube2">
@@ -367,13 +368,31 @@
                 document.querySelector('.mod072 .ofertas').style.overflowY = "scroll"
             }
 
-            
+            // for (i = 0; i < num; i++) {
+            //     limparRepetidos.shift();
+            // }
 
-            for (i = 0; i < num; i++) {
-                limparRepetidos.shift();
+            limparRepetidos = lista.filter((item, i) => lista.indexOf(item) === i);
+            num = limparRepetidos.length;
+            document.querySelector('.ofertas').innerHTML = limparRepetidos.map(item => item.outerHTML).join('');
+             
+            
+            document.querySelectorAll('.mod072 .ofertas .item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.mod072 .ofertas .item-mobile').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
+            document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
+            lista = [];
+        }
+
+        function listarDestino() {
+            if (document.querySelectorAll('.mod072 .item').length >= 4) {
+                document.querySelector('.mod072 .ofertas').style.overflowY = "scroll"
             }
 
-            
+            // for (i = 0; i < num; i++) {
+            //     limparRepetidos.shift();
+            // }
+
             limparRepetidos = lista.filter((item, i) => lista.indexOf(item) === i);
             num = limparRepetidos.length;
             document.querySelector('.ofertas').innerHTML = limparRepetidos.map(item => item.outerHTML).join('');
@@ -389,8 +408,14 @@
             let filtro = ar.filter(item => item.querySelector('.origem'));
             let filtro2 = filtro.filter(item => item.querySelector('.origem').innerText.includes(e.target.innerText));
             lista.push(...filtro2);
-            listar();
             
+            if (filtro2 != "") {
+                listar();
+            } else {
+                alert('Não há origens com essa localização')
+            }
+            
+
             // if (filtro2 != "") {
             //     document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
             // } else {
@@ -401,16 +426,14 @@
         }
 
         function pesquisarDestino(e) {
-            let filtro = ar.filter(item => item.querySelector('.destino'));
-            let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
-            lista.push(...filtro2);
-            listar();
-            
-            // if (filtro2 != "") {
-            //     document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
-            // } else {
-            //     alert('Não há destinos com essa localização')
-            // }
+            if (limparRepetidos == "") {
+                alert('Escolha uma origem primeiro')
+            } else {
+                let filtro = limparRepetidos.filter(item => item.querySelector('.destino'));
+                let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
+                lista.push(...filtro2);
+                listarDestino();
+            }
 
             document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
             document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
