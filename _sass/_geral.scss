@@ -522,7 +522,6 @@
                         }
 
                         &.item-mobile {
-                            // display: flex;
                             flex-direction: column;
                             margin: 10px 20px;
                             display: none;
@@ -541,6 +540,11 @@
                                 }
                             }
                             div {
+
+                                &.origem, &.destino{
+                                    display: none;
+                                }
+
                                 &.valor-clube {
                                     display: grid;
                                     grid-template-columns: 1fr 1fr;

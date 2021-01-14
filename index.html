@@ -109,6 +109,81 @@
                         </div>
                         <!--VALORES MOBILE-->
                         <div class="item-mobile">
+                            <div class="origem">FERNANDO DE NORONHA (FNR)</div>
+                            <div class="destino">SÃO PAULO (SSP)</div>
+                            <div class="valor-clube">
+                                <div class="clube1">CLUBE SMILES OU DIAMANTE</div>
+                                <div class="clube2">
+                                    <div class="de-a-partir">De: <s>xxxx</s> milhas<br />a partir de: </div>
+                                    <div class="valor">XXXXX</div>
+                                    <div class="texto-milhas"><span class="milhas-min-clube2">milhas</span><br />o
+                                        trecho<br />+ taxas*</div>
+                                </div>
+                            </div>
+                            <div class="valor-geral">
+                                <div class="geral1">CLIENTE SMILES</div>
+                                <div class="geral2">
+                                    <div class="de-a-partir">De: <s>xxxx</s> milhas<br />a partir de: </div>
+                                    <div class="valor">XXXXX</div>
+                                    <div class="texto-milhas"><span class="milhas-min-geral2">milhas</span><br />o
+                                        trecho<br />+ taxas*</div>
+                                </div>
+                            </div>
+                            <div class="logo-botao">
+                                <div class="logo">
+                                    <picture>
+                                        <img src="https://smiles-mkt.s3.amazonaws.com/ricardo/MOD058/logos/America%20Airlines.png"
+                                            alt="cia aerea">
+                                    </picture>
+                                </div>
+                                <div class="botao-mobile"><a class="btn-class-mobile" href="#">Resgate já</a></div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="origem">FERNANDO DE NORONHA (FNR)</div>
+                            <div class="aviao">
+                                <picture><img src="https://smiles-mkt.s3.amazonaws.com/ricardo/mod070/aviao%20cinxa.png"
+                                        alt="aviao"></picture>
+                            </div>
+                            <div class="destino">SÃO PAULO (SSP)</div>
+                            <div class="ida">XX/XX/XXXX<br /><span>(DOMINGO)</span></div>
+                            <div class="volta">XX/XX/XXXX<br /><span>(SÁBADO)</span></div>
+                            <div class="clube">
+                                <div class="clube-container">
+                                    <div class="de">De: <s>xxxx</s> milhas</div>
+                                    <div class="a-partir">a partir de:</div>
+                                    <div class="milhas">
+                                        <div class="valores">XXXX</div>
+                                        <div class="texto-milhas"><span class="milhas-min-clube">milhas</span><br />o
+                                            trecho<br />+ taxas*</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cliente">
+                                <div class="cliente-container">
+                                    <div class="de">De: <s>xxxx</s> milhas</div>
+                                    <div class="a-partir">a partir de:</div>
+                                    <div class="milhas">
+                                        <div class="valores">XXXX</div>
+                                        <div class="texto-milhas"><span class="milhas-min-cliente">milhas</span><br />o
+                                            trecho<br />+ taxas*</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cia">
+                                <picture>
+                                    <img src="https://smiles-mkt.s3.amazonaws.com/ricardo/MOD058/logos/America%20Airlines.png"
+                                        alt="cia aerea">
+                                </picture>
+                            </div>
+                            <div class="botao">
+                                <a class="btn-class" href="#">Resgate já</a>
+                            </div>
+                        </div>
+                        <!--VALORES MOBILE-->
+                        <div class="item-mobile">
+                            <div class="origem">FERNANDO DE NORONHA (FNR)</div>
+                            <div class="destino">SÃO PAULO (SSP)</div>
                             <div class="valor-clube">
                                 <div class="clube1">CLUBE SMILES OU DIAMANTE</div>
                                 <div class="clube2">
@@ -181,6 +256,8 @@
                         </div>
                         <!--VALORES MOBILE-->
                         <div class="item-mobile">
+                            <div class="origem">GUARULHOS (GRU)</div>
+                            <div class="destino">FERNANDO DE NORONHA (FER) 2</div>
                             <div class="valor-clube">
                                 <div class="clube1">CLUBE SMILES OU DIAMANTE 2</div>
                                 <div class="clube2">
@@ -281,21 +358,64 @@
         const origemDrop = document.querySelector('.origem-dropdown');
         const destinoDrop = document.querySelector('.destino-dropdown');
         let ar = [].slice.call(document.querySelector('.ofertas').children);
+        let lista = [];
+        let num = 0;
+        limparRepetidos = '';
+
+        function listar() {
+            if (document.querySelectorAll('.mod072 .item').length >= 4) {
+                document.querySelector('.mod072 .ofertas').style.overflowY = "scroll"
+            }
+
+            
+
+            for (i = 0; i < num; i++) {
+                limparRepetidos.shift();
+            }
+
+            
+            limparRepetidos = lista.filter((item, i) => lista.indexOf(item) === i);
+            num = limparRepetidos.length;
+            document.querySelector('.ofertas').innerHTML = limparRepetidos.map(item => item.outerHTML).join('');
+
+            document.querySelectorAll('.mod072 .ofertas .item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.mod072 .ofertas .item-mobile').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
+            document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
+            lista = [];
+        }
 
         function pesquisarOrigem(e) {
-            let filtro =  ar.filter(item => item.querySelector('.origem'));
+            let filtro = ar.filter(item => item.querySelector('.origem'));
             let filtro2 = filtro.filter(item => item.querySelector('.origem').innerText.includes(e.target.innerText));
-            document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            lista.push(...filtro2);
+            listar();
             
+            // if (filtro2 != "") {
+            //     document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            // } else {
+            //     alert('Não há origens com essa localização')
+            // }
+            // document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
+            // document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
         }
 
         function pesquisarDestino(e) {
-            let filtro =  ar.filter(item => item.querySelector('.destino'));
+            let filtro = ar.filter(item => item.querySelector('.destino'));
             let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
-            document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            lista.push(...filtro2);
+            listar();
             
+            // if (filtro2 != "") {
+            //     document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
+            // } else {
+            //     alert('Não há destinos com essa localização')
+            // }
+
+            document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
+            document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
         }
-       
+
         origemDrop.addEventListener('click', pesquisarOrigem);
         destinoDrop.addEventListener('click', pesquisarDestino);
 
