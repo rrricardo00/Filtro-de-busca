@@ -433,24 +433,37 @@
         function pesquisarDestino(e) {
 
             // let filtro = limparRepetidos.filter(item => item.querySelector('.destino'));
-            let filtro = ar.filter(item => item.querySelector('.destino'));
-            let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
-            lista.push(...filtro2);
-            if (filtro2 != "") {
-                listar();
-                document.querySelector('.mod072 .ofertas').style.display = "flex";
-                document.querySelector('.mod072 .mod072-tj').style.display = "block";
+            if (limparRepetidos == "") {
+                let filtro = ar.filter(item => item.querySelector('.destino'));
+                let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
+                lista.push(...filtro2);
+                if (filtro2 != "") {
+                    listar();
+                    document.querySelector('.mod072 .ofertas').style.display = "flex";
+                    document.querySelector('.mod072 .mod072-tj').style.display = "block";
+                } else {
+                    alert('Não há destinos para essa origem')
+                }
             } else {
-                alert('Não há destinos para essa origem')
+                let filtro = limparRepetidos.filter(item => item.querySelector('.destino'));
+                let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
+                lista.push(...filtro2);
+                if (filtro2 != "") {
+                    listar();
+                    document.querySelector('.mod072 .ofertas').style.display = "flex";
+                    document.querySelector('.mod072 .mod072-tj').style.display = "block";
+                    limparRepetidos = "";
+                } else {
+                    alert('Não há destinos para essa origem')
+                }
             }
-
 
         }
 
         origemDrop.addEventListener('click', pesquisarOrigem);
         destinoDrop.addEventListener('click', pesquisarDestino);
 
-       
+
 
     </script>
 </body>
