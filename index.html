@@ -57,7 +57,20 @@
                         <div class="origem-dropdown no-menu">
                             <div>FERNANDO DE NORONHA (FNR)</div>
                             <div>GUARULHOS (GRU)</div>
+                            <div>MEXICO (MEX)2</div>
+                            <div>MEXICO (MEX3)</div>
+                            <div>FERNANDO DE 4NORONHA (FNR)</div>
+                            <div>GUARULHOS3 (GRU)</div>
+                            <div>MEXICO3 (MEX)</div>
+                            <div>MEXICO (4MEX)</div>
+                            <div>FERNAN5O DE NORONHA (FNR)</div>
+                            <div>GUARU34LHOS (GRU)</div>
                             <div>MEXICO (MEX)</div>
+                            <div>MEXIC34O (MEX)</div>
+                            <div>FERNAN534DO DE NORONHA (FNR)</div>
+                            <div>GUARUL34HOS (GRU)</div>
+                            <div>MEXICO5 (MEX)</div>
+                            <div>MEXIC3452O (MEX)</div>
                         </div>
                         <div class="destino-dropdown no-menu">
                             <div>SÃO PAULO (SSP)</div>
@@ -452,9 +465,12 @@
                     listar();
                     document.querySelector('.mod072 .ofertas').style.display = "flex";
                     document.querySelector('.mod072 .mod072-tj').style.display = "block";
-                    limparRepetidos = "";
+
                 } else {
-                    alert('Não há destinos para essa origem')
+                    alert('Não há destinos para essa origem. Por favor, tente outra origem ou destino.');
+                    limparRepetidos = "";
+                    document.querySelector('.mod072 .ofertas').style.display = "none";
+                    document.querySelector('.mod072 .mod072-tj').style.display = "none";
                 }
             }
 
