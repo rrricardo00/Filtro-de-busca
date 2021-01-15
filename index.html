@@ -304,6 +304,8 @@
 
     <script>
         var i = 0;
+        document.querySelector('.mod072 .ofertas').style.display = "none";
+        document.querySelector('.mod072 .mod072-tj').style.display = "none";
         document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
         document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
 
@@ -356,6 +358,16 @@
 
         //filtro
 
+        const origemArr = Array.from(document.querySelectorAll('.origem-dropdown div'));
+        const filtrarOrigens = origemArr.map(item => item.outerHTML);
+        const limparOrigens = filtrarOrigens.filter((item, i) => filtrarOrigens.indexOf(item) === i);
+        document.querySelector('.origem-dropdown').innerHTML = limparOrigens.map(item => item).join('');
+
+        const destinoArr = Array.from(document.querySelectorAll('.destino-dropdown div'));
+        const filtrarDestinos = destinoArr.map(item => item.outerHTML);
+        const limparDestinos = filtrarDestinos.filter((item, i) => filtrarDestinos.indexOf(item) === i);
+        document.querySelector('.destino-dropdown').innerHTML = limparDestinos.map(item => item).join('');
+
         const origemDrop = document.querySelector('.origem-dropdown');
         const destinoDrop = document.querySelector('.destino-dropdown');
         let ar = [].slice.call(document.querySelector('.ofertas').children);
@@ -379,27 +391,22 @@
             lista = [];
         }
 
-        function listarDestino() {
-            if (document.querySelectorAll('.mod072 .item').length >= 4) {
-                document.querySelector('.mod072 .ofertas').style.overflowY = "scroll"
-            }
+        // function listarDestino() {
+        //     if (document.querySelectorAll('.mod072 .item').length >= 4) {
+        //         document.querySelector('.mod072 .ofertas').style.overflowY = "scroll"
+        //     }
 
-            if (limparRepetidos) {
-                console.log('ok')
-            } else {
-                console.log('not ok')
-            }
 
-            limparRepetidos = lista.filter((item, i) => lista.indexOf(item) === i);
+        //     limparRepetidos = lista.filter((item, i) => lista.indexOf(item) === i);
 
-            document.querySelector('.ofertas').innerHTML = limparRepetidos.map(item => item.outerHTML).join('');
+        //     document.querySelector('.ofertas').innerHTML = limparRepetidos.map(item => item.outerHTML).join('');
 
-            document.querySelectorAll('.mod072 .ofertas .item').forEach(item => item.classList.remove('active'));
-            document.querySelectorAll('.mod072 .ofertas .item-mobile').forEach(item => item.classList.remove('active'));
-            document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
-            document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
-            lista = [];
-        }
+        //     document.querySelectorAll('.mod072 .ofertas .item').forEach(item => item.classList.remove('active'));
+        //     document.querySelectorAll('.mod072 .ofertas .item-mobile').forEach(item => item.classList.remove('active'));
+        //     document.querySelectorAll('.mod072 .ofertas .item')[0].classList.add('active');
+        //     document.querySelectorAll('.mod072 .ofertas .item-mobile')[0].classList.add('active');
+        //     lista = [];
+        // }
 
         function pesquisarOrigem(e) {
             let filtro = ar.filter(item => item.querySelector('.origem'));
@@ -408,10 +415,11 @@
 
             if (filtro2 != "") {
                 listar();
+                document.querySelector('.mod072 .ofertas').style.display = "flex";
+                document.querySelector('.mod072 .mod072-tj').style.display = "block";
             } else {
                 alert('Não há origens com essa localização')
             }
-
 
             // if (filtro2 != "") {
             //     document.querySelector('.ofertas').innerHTML = filtro2.map(item => item.outerHTML).join('');
@@ -423,18 +431,17 @@
         }
 
         function pesquisarDestino(e) {
-            if (limparRepetidos == "") {
-                alert('Escolha uma origem primeiro')
+
+            // let filtro = limparRepetidos.filter(item => item.querySelector('.destino'));
+            let filtro = ar.filter(item => item.querySelector('.destino'));
+            let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
+            lista.push(...filtro2);
+            if (filtro2 != "") {
+                listar();
+                document.querySelector('.mod072 .ofertas').style.display = "flex";
+                document.querySelector('.mod072 .mod072-tj').style.display = "block";
             } else {
-                let filtro = limparRepetidos.filter(item => item.querySelector('.destino'));
-                let filtro2 = filtro.filter(item => item.querySelector('.destino').innerText.includes(e.target.innerText));
-                lista.push(...filtro2);
-                if (filtro2 != "") {
-                    listar();
-                } else {
-                    alert('Não há destinos para essa origem')
-                }
-              
+                alert('Não há destinos para essa origem')
             }
 
 
@@ -442,6 +449,8 @@
 
         origemDrop.addEventListener('click', pesquisarOrigem);
         destinoDrop.addEventListener('click', pesquisarDestino);
+
+       
 
     </script>
 </body>
